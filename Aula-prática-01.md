@@ -14,7 +14,9 @@ Após permitir o encaminhamento IPv4, iremos configurar nossas interfaces de red
 ```
 nano /etc/network/interfaces
 ```
+
 Onde encontraremos isto:
+
 <img width="797" height="598" alt="image" src="https://github.com/user-attachments/assets/555cf01c-3a7f-45ed-8fc1-00d203229fc7" />
 
 Neste ponto, iremos configurar para o Cenário 1, o Roteador 2 que é o mais completo, servindo de exemplo para os demais. Para isto precisamos inserir as interfaces no loopback desta maneira:
