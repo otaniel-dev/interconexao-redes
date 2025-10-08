@@ -1,5 +1,10 @@
 # Configurando rede interfaces de rede
-.
+
+Cenário aplicado:
+
+<img width="1453" height="763" alt="image" src="https://github.com/user-attachments/assets/cb383e79-fff4-47ab-958d-8ffd598254f5" />
+
+
 Inicialmente é necessário habilitar o encaminhamento de IPv4 para que seja possível utiulizar o IPv4 nas nossas máquinas, para isto, iremos ingressar no arquivo de configurações do sistema usando o camando:
 ```
 nano /etc/sysctl.conf
@@ -58,3 +63,25 @@ ifup enp0s9
 
 Após reiniciá-las, podemos verificar que os ips já foram atribuidos corretamente:
 <img width="752" height="121" alt="image" src="https://github.com/user-attachments/assets/90857b04-2eeb-4733-80ca-d323816ff673" />
+
+# Configurando rotas
+
+Neste ponto iremos adicionar as rotas para que seja possível que nossas redes se comuniquem.
+Considerando o roteador 1, veja que precisamos configurar rotas para a rede ```192.168.2.0/24``` e a rede ```192.168.3.0/24```, para isso utilizaremos o comando:
+
+```
+ip route add <rede_desejada> via <ip_da_interface_conectada_ao_meu_roteador_a_rede desejada> src <ip_da_minha_interfaze>
+```
+
+Para nossa prática, será:
+```
+ip route 192.168.2.0/24 via 192.168.0.2 src 192.168.1.1
+```
+e
+```
+ip route 192.168.3.0/24 via 192.168.0.2 src 192.168.1.1
+```
+
+Ao concluir a adição das rotas, teremos essa configuração, ao utilizar o ```ip route show```:
+
+<img width="576" height="125" alt="image" src="https://github.com/user-attachments/assets/a44b3e6a-58f2-443a-bb24-9e6141cdb3db" />
